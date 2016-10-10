@@ -20,22 +20,22 @@
 		function Menu ($http) {
 
 			var menu = [
-				
+
 					{
 						link: 'page1',
 							name: 'Page1'
 					},
-			    
+
 					{
 						link: 'page2',
 							name: 'Page2'
 					},
-			    
+
 					{
 						link: 'page3',
 							name: 'Page3'
 					},
-			    
+
 		  	];
 
 			return {

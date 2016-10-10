@@ -62,7 +62,7 @@
 <body ng-cloak>
 
 <!--Beginning-->
-<div ui-view layout="row" layout-fill></div>
+<div ui-view></div>
 <!--End-->
 
 <!--Templates. Remove then to a better location -->
