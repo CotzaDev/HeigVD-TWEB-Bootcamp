@@ -24,7 +24,8 @@
 		function Page2() {
 			/*jshint validthis: true */
 			var vm = this;
-
+vm.data = [52,21,14];
+vm.labels = ["Apples","Orange","Banane"];
 		}
 
 })();
