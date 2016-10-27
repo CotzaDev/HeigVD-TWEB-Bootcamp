@@ -14,8 +14,6 @@
 		'ngResource',
 		'ngAria',
 		 'ui.bootstrap',
-		 'ngMaterial',
-		'ngMdIcons',
 		'ngCookies',
 		'ngAnimate',
 		'ngTouch',

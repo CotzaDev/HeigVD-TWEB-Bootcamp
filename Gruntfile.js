@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 	    options: {
 	    },
 	    build: {
-				src: ['libs/css/angular-material-icons/angular-material-icons.css'
+				src: [
 				],
 	      dest: 'build/assets/css/<%= pkg.name %>-angularbundle.css'
 	    },
