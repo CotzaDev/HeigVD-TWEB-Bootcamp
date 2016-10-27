@@ -1,5 +1,37 @@
-<div layout="column" class="relative" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak>
-    <md-content layout="column" flex md-scroll-y style="background-color:#DCDCDC">
-        <div ui-view></div>
-    </md-content>
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><a href="index.html">{{ vm.title }}</a></h1>
+		<nav>
+			<a href="#menu">Menu</a>
+		</nav>
+	</header>
+
+	<div id="view" ui-view></div>
+
+	<!-- Footer -->
+	<section id="footer">
+		<div class="inner">
+			<ul class="copyright">
+				<li>&copy; Heig-VD. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>Version: {{vm.version}}</li>
+			</ul>
+		</div>
+	</section>
 </div>
+<!-- Menu -->
+<nav id="menu">
+	<div class="inner">
+		<h2>Menu</h2>
+		<ul class="links">
+      <li ng-repeat="item in vm.menu">
+        <a ui-sref="home.{{ item.link }}">{{ item.name }}</a>
+      </li>
+			<li><a href="https://cotzadev.github.io/HeigVD-TWEB-Bootcamp/">ABOUT</a></li>
+		</ul>
+		<a href="#" class="close">Close</a>
+	</div>
+</nav>

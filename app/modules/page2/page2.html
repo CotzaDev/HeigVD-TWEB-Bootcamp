@@ -1,4 +1,9 @@
-<div class="md-padding" flex layout-sm="column">
-  <h2 class="md-title">Graph with github datas</h2>
-  <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels"></canvas>
-</div>
+<!-- Wrapper -->
+<section id="wrapper">
+  <ng-include src="'app/modules/layouts/page/header.html'"></ng-include>
+  <div class="wrapper">
+    <div class="inner">
+      <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels"></canvas>
+    </div>
+  </div>
+</section>

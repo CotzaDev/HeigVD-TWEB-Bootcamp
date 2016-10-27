@@ -24,6 +24,8 @@
 		function Page3() {
 			/*jshint validthis: true */
 			var vm = this;
+			vm.title = 'Page 3';
+			vm.subtitle = 'This is the page 3';
 
 		}
 

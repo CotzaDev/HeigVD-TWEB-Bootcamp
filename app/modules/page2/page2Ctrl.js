@@ -24,6 +24,8 @@
 		function Page2() {
 			/*jshint validthis: true */
 			var vm = this;
+			vm.title = 'Graph with github datas';
+			vm.subtitle = 'A nice graph';
 			vm.data = [52,21,14];
 			vm.labels = ["Apples","Orange","Banane"];
 		}

@@ -19,136 +19,54 @@
 		<!-- endinjector -->
 	</head>
 	<body>
+		
+		<div id="view" ui-view></div>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">TWEB APP</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a ui-sref="home.page1">page 1</a></li>
-								<li><a ui-sref="home.page2">page 2</a></li>
-								<li><a ui-sref="home.page3">Page 3</a></li>
-								<li><a href="https://cotzadev.github.io/HeigVD-TWEB-Bootcamp/">ABOUT</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
-
-				<!-- Wrapper -->
-				<section id="wrapper">
-					<header>
-						<div class="inner">
-							<h2>Elements</h2>
-							<p>Phasellus non pulvinar erat. Fusce tincidunt nisl eget ipsum.</p>
-						</div>
-					</header>
-					<div class="wrapper">
-						<div class="inner">
-							<div id="view" ui-view></div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-							<form method="post" action="#">
-								<div class="field">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
-								</div>
-								<div class="field">
-									<label for="email">Email</label>
-									<input type="email" name="email" id="email" />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="4"></textarea>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="fa-home">
-									Untitled Inc<br />
-									1234 Somewhere Road Suite #2894<br />
-									Nashville, TN 00000-0000
-								</li>
-								<li class="fa-phone">(000) 000-0000</li>
-								<li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
-								<li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-								<li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
-								<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-			<!-- injector:js -->
-			<script src="/src/bower_components/jquery/dist/jquery.js"></script>
-			<script src="/src/bower_components/es5-shim/es5-shim.js"></script>
-			<script src="/src/bower_components/json3/lib/json3.min.js"></script>
-			<script src="/src/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-			<script src="/src/bower_components/angular/angular.js"></script>
-			<script src="/src/bower_components/angular-touch/angular-touch.js"></script>
-			<script src="/src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-			<script src="/src/bower_components/angular-aria/angular-aria.js"></script>
-			<script src="/src/bower_components/angular-mocks/angular-mocks.js"></script>
-			<script src="/src/bower_components/angular-cookies/angular-cookies.js"></script>
-			<script src="/src/bower_components/angular-animate/angular-animate.js"></script>
-			<script src="/src/bower_components/angular-sanitize/angular-sanitize.js"></script>
-			<script src="/src/bower_components/angular-resource/angular-resource.js"></script>
-			<script src="/src/bower_components/angular-messages/angular-messages.js"></script>
-			<script src="/src/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-			<script src="/src/bower_components/chart.js/dist/Chart.js"></script>
-			<script src="/src/bower_components/angular-chart.js/dist/angular-chart.js"></script>
-			<script src="/app/app.js"></script>
-			<script src="/app/app.config.js"></script>
-			<script src="/app/modules/home/homeModule.js"></script>
-			<script src="/app/modules/page1/page1Module.js"></script>
-			<script src="/app/modules/page2/page2Module.js"></script>
-			<script src="/app/modules/page3/page3Module.js"></script>
-			<script src="/app/modules/home/homeRoute.js"></script>
-			<script src="/app/modules/page1/page1Route.js"></script>
-			<script src="/app/modules/page2/page2Route.js"></script>
-			<script src="/app/modules/page3/page3Route.js"></script>
-			<script src="/app/modules/home/homeCtrl.js"></script>
-			<script src="/app/modules/layouts/main-page/mainPageCtrl.js"></script>
-			<script src="/app/modules/page1/page1Ctrl.js"></script>
-			<script src="/app/modules/page2/page2Ctrl.js"></script>
-			<script src="/app/modules/page3/page3Ctrl.js"></script>
-			<script src="/app/modules/home/homeService.js"></script>
-			<script src="/app/modules/layouts/nav-bar/navBarService.js"></script>
-			<script src="/app/modules/page1/page1Service.js"></script>
-			<script src="/app/modules/page2/page2Service.js"></script>
-			<script src="/app/modules/page3/page3Service.js"></script>
-			<!-- endinjector -->
+		<!-- injector:js -->
+		<script src="/src/bower_components/jquery/dist/jquery.js"></script>
+		<script src="/src/bower_components/es5-shim/es5-shim.js"></script>
+		<script src="/src/bower_components/json3/lib/json3.min.js"></script>
+		<script src="/src/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/src/bower_components/angular/angular.js"></script>
+		<script src="/src/bower_components/angular-touch/angular-touch.js"></script>
+		<script src="/src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="/src/bower_components/angular-aria/angular-aria.js"></script>
+		<script src="/src/bower_components/angular-mocks/angular-mocks.js"></script>
+		<script src="/src/bower_components/angular-cookies/angular-cookies.js"></script>
+		<script src="/src/bower_components/angular-animate/angular-animate.js"></script>
+		<script src="/src/bower_components/angular-sanitize/angular-sanitize.js"></script>
+		<script src="/src/bower_components/angular-resource/angular-resource.js"></script>
+		<script src="/src/bower_components/angular-messages/angular-messages.js"></script>
+		<script src="/src/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="/src/bower_components/chart.js/dist/Chart.js"></script>
+		<script src="/src/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+		<script src="/app/app.js"></script>
+		<script src="/app/app.config.js"></script>
+		<script src="/app/modules/home/homeModule.js"></script>
+		<script src="/app/modules/page1/page1Module.js"></script>
+		<script src="/app/modules/page2/page2Module.js"></script>
+		<script src="/app/modules/page3/page3Module.js"></script>
+		<script src="/app/modules/home/homeRoute.js"></script>
+		<script src="/app/modules/page1/page1Route.js"></script>
+		<script src="/app/modules/page2/page2Route.js"></script>
+		<script src="/app/modules/page3/page3Route.js"></script>
+		<script src="/app/modules/home/homeCtrl.js"></script>
+		<script src="/app/modules/layouts/page/pageCtrl.js"></script>
+		<script src="/app/modules/page1/page1Ctrl.js"></script>
+		<script src="/app/modules/page2/page2Ctrl.js"></script>
+		<script src="/app/modules/page3/page3Ctrl.js"></script>
+		<script src="/app/modules/home/homeService.js"></script>
+		<script src="/app/modules/layouts/menu/menuService.js"></script>
+		<script src="/app/modules/page1/page1Service.js"></script>
+		<script src="/app/modules/page2/page2Service.js"></script>
+		<script src="/app/modules/page3/page3Service.js"></script>
+		<!-- endinjector -->
 
 		<!-- Scripts -->
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 
 	</body>
 </html>
