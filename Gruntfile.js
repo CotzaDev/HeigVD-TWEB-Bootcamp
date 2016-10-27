@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		'*/\n',
 
 		clean: {
-			dist: ['src']
+			dist: ['src', 'libs']
 		},
 
 		jshint: {
@@ -48,18 +48,41 @@ module.exports = function (grunt) {
 					'app/modules/**/*Service.js',
 					'app/modules/**/*Directive.js'
 				],
-				dest: 'app/assets/js/<%= pkg.name %>-appbundle.js'
+				dest: 'build/assets/js/<%= pkg.name %>-appbundle.js'
 			},
 			build: {
 				src: [
 					// Angular Project Dependencies,
-					'app/assets/libs/angular/angular.js',
-					'app/assets/libs/**/*.js'
-
+					'libs/js/angular/angular.js',
+					'libs/js/angular-aria/angular-aria.js',
+					'libs/js/angular-resource/angular-resource.js',
+					'libs/js/angular-mocks/angular-mocks.js',
+					'libs/js/angular-cookies/angular-cookies.js',
+					'libs/js/angular-sanitize/angular-sanitize.js',
+					'libs/js/angular-animate/angular-animate.js',
+					'libs/js/angular-touch/angular-touch.js',
+					'libs/js/angular-bootstrap/ui-bootstrap-tpls.js',
+					'libs/js/angular-ui-router/angular-ui-router.js',
+					'libs/js/angular-aria/angular-aria.js',
+					'libs/js/angular-material/angular-material.js',
+					'libs/js/angular-messages/angular-messages.js',
+					'libs/js/angular-material-icons/angular-material-icons.min.js',
+					'libs/js/chart.js/Chart.js',
+					'libs/js/angular-chart.js/angular-chart.js'
 				],
-				dest: 'app/assets/js/<%= pkg.name %>-angularbundle.js'
+				dest: 'build/assets/js/<%= pkg.name %>-angularbundle.js'
 			}
 		},
+
+		concat_css: {
+	    options: {
+	    },
+	    build: {
+				src: ['libs/css/angular-material-icons/angular-material-icons.css'
+				],
+	      dest: 'build/assets/css/<%= pkg.name %>-angularbundle.css'
+	    },
+  	},
 
 		uglify: {
 			options: {
@@ -68,11 +91,11 @@ module.exports = function (grunt) {
 			},
 			base: {
 				src: ['<%= concat.base.dest %>'],
-				dest: 'app/assets/js/<%= pkg.name %>-angscript.min.js'
+				dest: 'build/assets/js/<%= pkg.name %>-angscript.min.js'
 			},
 			basePlugin: {
 				src: [ 'src/plugins/**/*.js' ],
-				dest: 'app/assets/js/plugins/',
+				dest: 'build/assets/js/plugins/',
 				expand: true,
 				flatten: true,
 				ext: '.min.js'
@@ -110,7 +133,9 @@ module.exports = function (grunt) {
 		},
 
 		injector: {
-			options: {},
+			options: {
+				ignorePath: 'build/'
+			},
 			dev: {
 				files: {
 					'index.html': [
@@ -127,11 +152,10 @@ module.exports = function (grunt) {
 			},
 			production: {
 				files: {
-					'index.html': [
-						'app/assets/css/**/*.css',
-						'app/assets/js/*.js'
+					'build/index.html': [
+						'build/assets/js/<%= pkg.name %>*.js',
+						'build/assets/css/<%= pkg.name %>*.css'
 					]
-
 				}
 			}
 		},
@@ -139,16 +163,36 @@ module.exports = function (grunt) {
 		ngtemplates: {
 			app: {
 				src: 'app/modules/**/*.html',
-				dest: 'app/assets/js/templates.js',
+				dest: 'build/assets/js/<%= pkg.name %>-templates.js',
 				options: {
 					module: '<%= pkg.name %>',
-					root: 'app/',
+					root: '/',
 					standAlone: false
 				}
 			}
+		},
+
+		copy: {
+    	production: {
+				files: [{
+					expand: true,
+					cwd: 'assets',
+					src: '**',
+					dest: 'build/assets/'
+				},
+				{
+					expand: true,
+					cwd: 'images',
+					src: '**',
+					dest: 'build/images/'
+				},
+				{
+					expand: true,
+					src: 'index.html',
+					dest: 'build/'
+				}]
+			}
 		}
-
-
 
 	});
 
@@ -163,10 +207,11 @@ module.exports = function (grunt) {
 		"jshint",
 		"exec",
 		"concat",
+		"concat_css",
 		"ngtemplates",
-		"injector:production",
-		"concurrent",
-		"clean"
+		"copy:production",
+		"injector:production"
+		//"clean"
 	]);
 
 	// Development task(s).

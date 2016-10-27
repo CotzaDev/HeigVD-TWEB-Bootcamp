@@ -21,6 +21,7 @@
 		'ngTouch',
 		'ngSanitize',
 		'ui.router',
+		'chart.js',
 		'home',
 		'page1',
 		'page2',

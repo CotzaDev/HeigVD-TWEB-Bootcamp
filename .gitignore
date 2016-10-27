@@ -1,9 +1,11 @@
 node_modules/
 bower_components/
 src/
+libs/
 *.log
 
 *.DS_Store
+bootstrap.less
 
 build/
 dist/
