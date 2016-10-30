@@ -13,7 +13,7 @@
 		.module('repo')
 		.controller('RepoCtrl', Repo);
 
-		Repo.$inject = ['$scope', '$stateParams', 'RepoService'];
+		Repo.$inject = ['$scope', '$location', '$stateParams', 'RepoService'];
 
 		/*
 		* recommend
@@ -21,12 +21,15 @@
 		* and bindable members up top.
 		*/
 
-		function Repo($scope, $stateParams, RepoService) {
+		function Repo($scope, $location, $stateParams, RepoService) {
 			/*jshint validthis: true */
 			var vm = this;
-			$scope.vm.subtitle = 'Analysis of ' + $stateParams.user + '\'s ' + $stateParams.name + ' repository';
 			vm.loaded = false;
 			vm.error = false;
+
+			vm.goToUser = goToUser;
+
+			$scope.vm.subtitle = 'Analysis of ' + $stateParams.user + '\'s ' + $stateParams.name + ' repository';
 
 			vm.repo = {
 				labels: [],
@@ -66,7 +69,8 @@
 				labels: [],
 				commits: [],
 				adds: [],
-				deletes: []
+				deletes: [],
+				list: []
 			};
 
       RepoService.getGithubData($stateParams.user, $stateParams.name)
@@ -90,6 +94,8 @@
 						vm.contributors.adds.push(contr.add);
 						vm.contributors.deletes.push(contr.delete);
 
+						vm.contributors.list.push({name: contr.name, avatar: contr.avatar});
+
 						vm.loaded = true;
 					});
       })
@@ -104,6 +110,10 @@
 				vm.error = true;
 				vm.loaded = true;
 			});
+
+			function goToUser(username) {
+				$location.path('analysis/user/' + username);
+			}
 		}
 
 })();

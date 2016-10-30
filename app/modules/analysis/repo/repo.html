@@ -44,5 +44,31 @@
         <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.contributors.deletes" chart-labels="vm.contributors.labels"></canvas>
       </div>
     </div>
+    <div class="row uniform">
+      <div ng-class="vm.contributors.list.length > 1 ? '6u 12$(xsmall)' : '12u 12$(xsmall)'">
+        <div class="table-wrapper">
+          <table>
+            <tbody>
+              <tr ng-repeat="contr in vm.contributors.list" ng-if="$even" ng-click="vm.goToUser(contr.name)">
+                <td class="avatar"><img src="{{contr.avatar}}" alt=""></td>
+                <td>{{contr.name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div ng-if="vm.contributors.list.length > 1" class="6u 12$(xsmall)">
+        <div class="table-wrapper">
+          <table>
+            <tbody>
+              <tr ng-repeat="contr in vm.contributors.list" ng-if="$odd">
+                <td class="avatar"><img src="{{contr.avatar}}" alt=""></td>
+                <td>{{contr.name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

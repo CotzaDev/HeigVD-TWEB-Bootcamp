@@ -135,9 +135,6 @@ app.get('/api/repo/:user/:repo', function (req, res) {
       .then(function(data) {
         var result = [];
 
-        if(!data)
-          resolve(result);
-
         data.forEach(function(contr){
           var contributor = {};
           // commits
@@ -146,11 +143,14 @@ app.get('/api/repo/:user/:repo', function (req, res) {
           contributor.add = 0;
           // lines deleted
           contributor.delete = 0;
-          contr.weeks.forEach(function(week){
-            contributor.add += week.a;
-            contributor.delete += week.d;
-          });
+          if(contr.weeks) {
+            contr.weeks.forEach(function(week){
+              contributor.add += week.a;
+              contributor.delete += week.d;
+            });
+          }
           contributor.name = contr.author.login;
+          contributor.avatar = contr.author.avatar_url;
 
           result.push(contributor);
         });
@@ -206,7 +206,8 @@ app.get('/api/user/:username', function (req, res) {
       .then(function(data){
         var result = {};
 
-        result.name = data.name;
+        if(data.name)
+          result.name = data.name;
         if(data.company)
           result.company = data.company;
         if(data.location)
