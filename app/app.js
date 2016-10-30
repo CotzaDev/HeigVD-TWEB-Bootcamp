@@ -23,6 +23,8 @@
 		'home',
 		'page1',
 		'page2',
+			'repo',
+			'user',
 		'page3',
 	]);
 

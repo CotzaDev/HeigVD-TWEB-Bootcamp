@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.module:page1Module
+	 * @name app.module:userModule
 	 * @description
-	 * # page1Module
+	 * # userModule
 	 * Module of the app
 	 */
 
-  	angular.module('page1', ['chart.js']);
+  	angular.module('user', ['chart.js']);
 
 })();

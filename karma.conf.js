@@ -28,6 +28,7 @@ module.exports = function (config) {
 			'src/bower_components/angular-material-icons/angular-material-icons.js',
 			'src/bower_components/chart.js/Chart.js',
 			'src/bower_components/angular-chart.js/angular-chart.js',
+			'src/bower_components/github-url-to-object/gh.js',
 			'app/app.js',
 			'app/modules/home/homeModule.js',
 			'app/modules/home/homeCtrl.js',

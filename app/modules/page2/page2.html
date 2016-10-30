@@ -3,7 +3,26 @@
   <ng-include src="'app/modules/layouts/page/header.html'"></ng-include>
   <div class="wrapper">
     <div class="inner">
-      <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels"></canvas>
+      <div class="row uniform">
+        <div class="7u 12u$(xsmall)">
+  					<label for="input">{{ vm.inputLabel }}</label>
+  					<input type="text" name="input" id="input" value="" ng-model="vm.input">
+  			</div>
+        <div class="3u 12u$(xsmall)">
+  					<label for="demo-category">Type</label>
+  					<div class="select-wrapper">
+    					<select name="demo-category" id="demo-category" ng-model="vm.type">
+      					<option value="repo">Repository</option>
+      					<option value="usr">User/Org</option>
+  						</select>
+  					</div>
+  			</div>
+        <div class="2u$ 12u$(xsmall)">
+          <label for="btn-go">&nbsp;</label>
+          <input type="button" name="btn-go" id="btn-go" value="Go" class="button special fit" ng-click="vm.runAnalysis()">
+        </div>
+      </div>
+      <div id="view" ui-view></div>
     </div>
   </div>
 </section>

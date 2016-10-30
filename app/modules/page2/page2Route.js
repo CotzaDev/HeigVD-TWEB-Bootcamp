@@ -10,14 +10,21 @@
 
 angular.module('page2')
 	.config(['$stateProvider', function ($stateProvider) {
-		
+
 		$stateProvider
 			.state('home.page2', {
 				url:'/page2',
+				abstract: true,
 				templateUrl: 'app/modules/page2/page2.html',
+				controller: 'Page2Ctrl',
+				controllerAs: 'vm'
+			})
+			.state('home.page2.default', {
+				url:'',
+				template: '',
 				controller: 'Page2Ctrl',
 				controllerAs: 'vm'
 			});
 
-		
+
 	}]);

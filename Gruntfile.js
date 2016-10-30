@@ -68,7 +68,8 @@ module.exports = function (grunt) {
 					'libs/js/angular-messages/angular-messages.js',
 					'libs/js/angular-material-icons/angular-material-icons.min.js',
 					'libs/js/chart.js/Chart.js',
-					'libs/js/angular-chart.js/angular-chart.js'
+					'libs/js/angular-chart.js/angular-chart.js',
+					'libs/js/github-url-to-object/gh.js'
 				],
 				dest: 'build/assets/js/<%= pkg.name %>-angularbundle.js'
 			}

@@ -44,6 +44,16 @@
 		border-spacing: 0;
 	}
 
+	table td.avatar {
+		width: 55px;
+	}
+
+	table td.avatar img {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+	}
+
 	body {
 		-webkit-text-size-adjust: none;
 	}
@@ -54,6 +64,17 @@
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
+	}
+
+/* Error box */
+	.error_msg {
+		margin: 10px 0px;
+		padding:12px;
+		color: #fff;
+		background-color: #ed5757;
+		border-radius: 5px;
+		font-weight: bold;
+		border: solid 2px rgba(255, 255, 255, 0.125);
 	}
 
 /* Grid */
@@ -1767,6 +1788,10 @@
 		margin: 0 0 2em 0;
 	}
 
+	.capitalize {
+    text-transform: capitalize;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-family: Raleway, Helvetica, sans-serif;
@@ -1796,10 +1821,13 @@
 
 	h3 {
 		font-size: 0.9em;
+		margin-top: 30px;
+		margin-bottom: 20px;
 	}
 
 	h4 {
 		font-size: 0.7em;
+		margin-bottom: 20px;
 	}
 
 	h5 {
@@ -3692,4 +3720,202 @@
 			padding: 2em 1.5em 0.1em 1.5em ;
 		}
 
+	}
+
+	// Loading
+	@-webkit-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-webkit-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-moz-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-ms-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-moz-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-webkit-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@-o-keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	@keyframes uil-ripple {
+	  0% {
+	    width: 0;
+	    height: 0;
+	    opacity: 0;
+	    margin: 0 0 0 0;
+	  }
+	  33% {
+	    width: 44%;
+	    height: 44%;
+	    margin: -22% 0 0 -22%;
+	    opacity: 1;
+	  }
+	  100% {
+	    width: 88%;
+	    height: 88%;
+	    margin: -44% 0 0 -44%;
+	    opacity: 0;
+	  }
+	}
+	.uil-ripple-css {
+	  background: none;
+	  position: relative;
+	  width: 200px;
+	  height: 200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.uil-ripple-css div {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  margin: 0;
+	  width: 0;
+	  height: 0;
+	  opacity: 0;
+	  border-radius: 50%;
+	  border-width: 12px;
+	  border-style: solid;
+	  -ms-animation: uil-ripple 2s ease-out infinite;
+	  -moz-animation: uil-ripple 2s ease-out infinite;
+	  -webkit-animation: uil-ripple 2s ease-out infinite;
+	  -o-animation: uil-ripple 2s ease-out infinite;
+	  animation: uil-ripple 2s ease-out infinite;
+	}
+	.uil-ripple-css div:nth-of-type(1) {
+	  border-color: #ffffff;
+	}
+	.uil-ripple-css div:nth-of-type(2) {
+	  border-color: #4c5c96;
+	  -ms-animation-delay: 1s;
+	  -moz-animation-delay: 1s;
+	  -webkit-animation-delay: 1s;
+	  -o-animation-delay: 1s;
+	  animation-delay: 1s;
 	}

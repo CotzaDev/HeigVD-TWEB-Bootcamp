@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.module:page1Module
+	 * @name app.module:page2Module
 	 * @description
-	 * # page1Module
+	 * # page2Module
 	 * Module of the app
 	 */
 
-  	angular.module('page1', ['chart.js']);
+  	angular.module('repo', ['chart.js']);
 
 })();

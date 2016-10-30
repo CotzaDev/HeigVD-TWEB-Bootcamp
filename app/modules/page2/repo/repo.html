@@ -1,0 +1,48 @@
+<!-- Loading animation -->
+<div class='uil-ripple-css' style='transform:scale(0.55);' ng-if="!vm.loaded"><div></div><div></div></div>
+<!-- Error message -->
+<div class="error_msg" ng-if="vm.error">
+   <i class="fa fa-times-circle"></i>
+   {{vm.errorMsg}}
+</div>
+<!-- Content -->
+<div ng-if="vm.loaded && !vm.error">
+  <h3 class="major">Commits during the last year</h3>
+  <canvas id="line" class="chart chart-line" chart-data="vm.repo.commits" chart-labels="vm.repo.labels" chart-series="vm.repo.series"></canvas>
+  <h3 class="major">Stats</h3>
+  <div class="row uniform">
+    <div ng-class="vm.languages.labels != 0 ? '6u 12$(xsmall)' : '12u 12$(xsmall)'">
+      <div class="table-wrapper">
+				<table class="alt">
+					<tbody>
+						<tr ng-repeat="(key, value) in vm.stats">
+							<td>{{key}}</td>
+							<td>{{value}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+    </div>
+    <div class="6u 12u$(xsmall)" ng-if="vm.languages.labels != 0">
+      <center><h4>Repo languages</h4></center>
+      <canvas id="pie" class="chart chart-pie" chart-data="vm.languages.lines" chart-labels="vm.languages.labels" chart-options="vm.languages.options"></canvas>
+    </div>
+  </div>
+  <div ng-if="vm.contributors.labels.length > 1">
+    <h3 class="major">Contributors</h3>
+    <div class="row uniform">
+      <div class="4u 12u$(xsmall)">
+        <center><h4>Commits</h4></center>
+        <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.contributors.commits" chart-labels="vm.contributors.labels"></canvas>
+      </div>
+      <div class="4u 12u$(xsmall)">
+        <center><h4>Lines added</h4></center>
+        <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.contributors.adds" chart-labels="vm.contributors.labels"></canvas>
+      </div>
+      <div class="4u 12u$(xsmall)">
+        <center><h4>Lines removed</h4></center>
+        <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.contributors.deletes" chart-labels="vm.contributors.labels"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
