@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Discover our App
-image: images/librairies.jpg
+image: images/useragent.png
 style: wrapper alt spotlight style2
 id: two
 tagline: With this app you can get informations about a gitHub repository, user or organisation !
