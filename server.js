@@ -6,11 +6,13 @@ var app = express();
 var gh = new GitHubApi({Promise: Promise});
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost:27017/github');
-gh.authenticate({
-  type: "token",
-  token: "d77879429c5e9f6ec509a2ac9db575bcafd9452d",
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/github');
+if (process.env.GITHUB_TOKEN) {
+  gh.authenticate({
+    type: "token",
+    token: process.env.GITHUB_TOKEN
+  });
+}
 
 /* DB Entry Schema */
 var HistorySchema = new mongoose.Schema({
