@@ -50,7 +50,7 @@
           <table>
             <tbody>
               <tr ng-repeat="contr in vm.contributors.list" ng-if="$even" ng-click="vm.goToUser(contr.name)">
-                <td class="avatar"><img src="{{contr.avatar}}" alt=""></td>
+                <td class="avatar"><img ng-src="{{contr.avatar}}" alt=""></td>
                 <td>{{contr.name}}</td>
               </tr>
             </tbody>
@@ -61,8 +61,8 @@
         <div class="table-wrapper">
           <table>
             <tbody>
-              <tr ng-repeat="contr in vm.contributors.list" ng-if="$odd">
-                <td class="avatar"><img src="{{contr.avatar}}" alt=""></td>
+              <tr ng-repeat="contr in vm.contributors.list" ng-if="$odd" ng-click="vm.goToUser(contr.name)">
+                <td class="avatar"><img ng-src="{{contr.avatar}}" alt=""></td>
                 <td>{{contr.name}}</td>
               </tr>
             </tbody>

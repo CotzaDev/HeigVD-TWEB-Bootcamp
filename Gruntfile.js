@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 					'libs/js/angular-sanitize/angular-sanitize.js',
 					'libs/js/angular-animate/angular-animate.js',
 					'libs/js/angular-touch/angular-touch.js',
-					'libs/js/angular-bootstrap/ui-bootstrap-tpls.js',
+					'libs/js/jquery/jquery.js',
 					'libs/js/angular-ui-router/angular-ui-router.js',
 					'libs/js/angular-aria/angular-aria.js',
 					'libs/js/angular-material/angular-material.js',

@@ -4,8 +4,8 @@
     "angularCookies": true,
     "angularAnimate": true,
     "angularSanitize": true,
-    "angularBootstrap": true,
-    "angularMaterial": true,
+    "angularBootstrap": false,
+    "angularMaterial": false,
     "modules": [
       {
         "name": "page1"

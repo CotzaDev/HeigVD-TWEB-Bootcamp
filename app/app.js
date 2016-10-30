@@ -13,7 +13,6 @@
 	angular.module('bootcamp-app', [
 		'ngResource',
 		'ngAria',
-		 'ui.bootstrap',
 		'ngCookies',
 		'ngAnimate',
 		'ngTouch',

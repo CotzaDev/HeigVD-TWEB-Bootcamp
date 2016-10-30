@@ -151,8 +151,10 @@ app.get('/api/repo/:user/:repo', function (req, res) {
               contributor.delete += week.d;
             });
           }
-          contributor.name = contr.author.login;
-          contributor.avatar = contr.author.avatar_url;
+          if(contr.author){
+            contributor.name = contr.author.login;
+            contributor.avatar = contr.author.avatar_url;
+          }
 
           result.push(contributor);
         });
@@ -316,5 +318,6 @@ function saveEntrySendRes(entry, res, data) {
     res.json(data);
   }, function(e){
     console.log(e);
+    res.status('500').send({ error: 'DB error' });
   });
 }

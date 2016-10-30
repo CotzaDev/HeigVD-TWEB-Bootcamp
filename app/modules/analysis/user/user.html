@@ -34,7 +34,7 @@
           <table>
             <tbody>
               <tr ng-repeat="member in vm.members" ng-if="$even" ng-click="vm.goToUser(member.name)">
-                <td class="avatar"><img src="{{member.avatar}}" alt=""></td>
+                <td class="avatar"><img ng-src="{{member.avatar}}" alt=""></td>
                 <td>{{member.name}}</td>
               </tr>
             </tbody>
@@ -45,8 +45,8 @@
         <div class="table-wrapper">
           <table>
             <tbody>
-              <tr ng-repeat="member in vm.members" ng-if="$odd">
-                <td class="avatar"><img src="{{member.avatar}}" alt=""></td>
+              <tr ng-repeat="member in vm.members" ng-if="$odd" ng-click="vm.goToUser(member.name)">
+                <td class="avatar"><img ng-src="{{member.avatar}}" alt=""></td>
                 <td>{{member.name}}</td>
               </tr>
             </tbody>
