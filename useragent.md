@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Discover your Useragent
+title: Discover our App
 image: images/useragent.jpg
 style: wrapper alt spotlight style2
 id: two
-tagline: With this app you can discover your useragent easily !
+tagline: With this app you can get informations about a gitHub repository, user or organisation !
 category: blog
 ---
 In computing, a user agent is software (a software agent) that is acting on behalf of a user. One common use of the term refers to a web browser telling a web site information about the browser and operating system. This allows the web site to customize content for the capabilities of a particular device, but also raises privacy issues.
