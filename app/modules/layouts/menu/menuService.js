@@ -22,19 +22,14 @@
 		var menu = [
 
 			{
-				link: 'page1',
-				name: 'Page1'
+				link: 'analysis',
+				name: 'GitHub Analysis'
 			},
 
 			{
-				link: 'page2',
-				name: 'Page2'
-			},
-
-			{
-				link: 'page3',
-				name: 'Page3'
-			},
+				link: 'history',
+				name: 'History'
+			}
 
 		];
 

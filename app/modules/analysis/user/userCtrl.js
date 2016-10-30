@@ -3,17 +3,17 @@
 
 	/**
 	* @ngdoc function
-	* @name app.controller:page2Ctrl
+	* @name app.controller:userCtrl
 	* @description
-	* # page2Ctrl
+	* # userCtrl
 	* Controller of the app
 	*/
 
   	angular
-		.module('repo')
-		.controller('RepoCtrl', Repo);
+		.module('user')
+		.controller('UserCtrl', User);
 
-		Repo.$inject = ['$scope', '$stateParams', 'RepoService'];
+		User.$inject = ['$scope', '$stateParams', '$location', 'UserService'];
 
 		/*
 		* recommend
@@ -21,18 +21,15 @@
 		* and bindable members up top.
 		*/
 
-		function Repo($scope, $stateParams, RepoService) {
+		function User($scope, $stateParams, $location, UserService) {
 			/*jshint validthis: true */
 			var vm = this;
-			$scope.vm.subtitle = 'Analysis of ' + $stateParams.user + '\'s ' + $stateParams.name + ' repository';
+
+			vm.goToUser = goToUser;
+
+			$scope.vm.subtitle = 'Analysis of : ' + $stateParams.username;
 			vm.loaded = false;
 			vm.error = false;
-
-			vm.repo = {
-				labels: [],
-				commits: [[], []],
-				series: ['All', 'Owner']
-			};
 
 			vm.languages = {
 				labels: [],
@@ -41,6 +38,7 @@
 					legend: {
 						display: true,
 						position: 'bottom',
+						fullWidth: false,
 						labels : {
 							fontColor: '#fff'
 						}
@@ -62,41 +60,28 @@
 				}
 			};
 
-			vm.contributors = {
-				labels: [],
-				commits: [],
-				adds: [],
-				deletes: []
-			};
-
-      RepoService.getGithubData($stateParams.user, $stateParams.name)
+      UserService.getGithubData($stateParams.username)
       	.then(function(data) {
-					data.commits.forEach(function(cMonth){
-						vm.repo.labels.push(cMonth.month);
-						vm.repo.commits[0].push(parseInt(cMonth.all));
-						vm.repo.commits[1].push(parseInt(cMonth.owner));
+
+					vm.type = data.type;
+
+					var topLanguages = UserService.sortProperties(data.languages).slice(0,10);
+					topLanguages.forEach(function(lang){
+						vm.languages.labels.push(lang[0]);
+						vm.languages.lines.push(lang[1]);
 					});
 
-					for(var lang in data.languages){
-						vm.languages.labels.push(lang);
-						vm.languages.lines.push(data.languages[lang]);
+					vm.infos = data.infos;
+
+					if(data.type == 'Organization') {
+						vm.members = data.members;
 					}
 
-					vm.stats = data.stats;
-
-					data.contributors.forEach(function(contr) {
-						vm.contributors.labels.push(contr.name);
-						vm.contributors.commits.push(contr.commit);
-						vm.contributors.adds.push(contr.add);
-						vm.contributors.deletes.push(contr.delete);
-
-						vm.loaded = true;
-					});
+					vm.loaded = true;
       })
 			.catch(function(err) {
-				console.log(err);
 				if(err.status == 404) {
-					vm.errorMsg = "The repo doesn't exist";
+					vm.errorMsg = "The user/organisation doesn't exist";
 				}
 				else {
 					vm.errorMsg = "An error occurred";
@@ -104,6 +89,10 @@
 				vm.error = true;
 				vm.loaded = true;
 			});
+
+			function goToUser(username) {
+				$location.path('analysis/user/' + username);
+			}
 		}
 
 })();

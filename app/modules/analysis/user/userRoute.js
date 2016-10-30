@@ -12,9 +12,9 @@ angular.module('user')
 	.config(['$stateProvider', function ($stateProvider) {
 
 		$stateProvider
-			.state('home.page2.user', {
+			.state('home.analysis.user', {
 				url:'/user/:username',
-				templateUrl: 'app/modules/page2/user/user.html',
+				templateUrl: 'app/modules/analysis/user/user.html',
 				controller: 'UserCtrl',
 				controllerAs: 'vm'
 			});

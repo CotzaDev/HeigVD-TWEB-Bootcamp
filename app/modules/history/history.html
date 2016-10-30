@@ -1,0 +1,47 @@
+<!-- Wrapper -->
+<section id="wrapper">
+  <ng-include src="'app/modules/layouts/page/header.html'"></ng-include>
+  <div class="wrapper">
+    <div class="inner">
+      <!-- Loading animation -->
+      <div class='uil-ripple-css' style='transform:scale(0.55);' ng-if="!vm.loaded"><div></div><div></div></div>
+      <!-- Error message -->
+      <div class="error_msg" ng-if="vm.error">
+         <i class="fa fa-times-circle"></i>
+         {{vm.errorMsg}}
+      </div>
+      <!-- Content -->
+      <div class="12u 12u$(xsmall)">
+        <input type="checkbox" id="onlyIP" name="onlyIP" value="mine" checked="" ng-model="vm.onlyIP">
+        <label for="onlyIP">Show only requests from my IP address</label>
+      </div>
+      <div ng-if="vm.loaded && !vm.error">
+        <div class="row uniform">
+          <div class="12u 12u$(xsmall)">
+            <br/>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+									<tr>
+										<th>Date</th>
+										<th>Type</th>
+										<th>Repo / User or organisation</th>
+                    <th>IP address</th>
+									</tr>
+								</thead>
+                <tbody>
+                  <tr ng-repeat="entry in vm.history" ng-click="vm.goToAnalyse(entry.type, entry.value)">
+                    <td>{{vm.convertDate(entry.date)}}</td>
+                    <td>{{entry.type}}</td>
+                    <td>{{entry.value}}</td>
+                    <td>{{entry.ip}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

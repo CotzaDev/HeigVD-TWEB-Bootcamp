@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.module:page1Module
+	 * @name app.module:historyModule
 	 * @description
-	 * # page1Module
+	 * # historyModule
 	 * Module of the app
 	 */
 
-  	angular.module('page1', ['chart.js']);
+  	angular.module('history', []);
 
 })();

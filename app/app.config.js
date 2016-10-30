@@ -26,7 +26,7 @@
 
 
 		$urlRouterProvider
-			.otherwise('/page1');
+			.otherwise('/analysis');
 
 	}
 

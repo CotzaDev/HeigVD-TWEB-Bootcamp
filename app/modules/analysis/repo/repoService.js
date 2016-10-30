@@ -3,9 +3,9 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:page2Service
+	 * @name app.service:analysisService
 	 * @description
-	 * # page2Service
+	 * # analysisService
 	 * Service of the app
 	 */
 

@@ -3,21 +3,21 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:page2Service
+	 * @name app.service:analysisService
 	 * @description
-	 * # page2Service
+	 * # analysisService
 	 * Service of the app
 	 */
 
   	angular
-		.module('page2')
-		.factory('Page2Service', Page2);
+		.module('analysis')
+		.factory('AnalysisService', Analysis);
 		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 		// function Name ($http, someSevide) {...}
 
-		Page2.$inject = ['$http'];
+		Analysis.$inject = ['$http'];
 
-		function Page2 ($http) {
+		function Analysis ($http) {
 
 		}
 

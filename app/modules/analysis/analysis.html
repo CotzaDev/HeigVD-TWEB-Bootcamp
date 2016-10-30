@@ -22,6 +22,10 @@
           <input type="button" name="btn-go" id="btn-go" value="Go" class="button special fit" ng-click="vm.runAnalysis()">
         </div>
       </div>
+      <div class="error_msg" ng-if="vm.error">
+         <i class="fa fa-times-circle"></i>
+         {{vm.errorMsg}}
+      </div>
       <div id="view" ui-view></div>
     </div>
   </div>

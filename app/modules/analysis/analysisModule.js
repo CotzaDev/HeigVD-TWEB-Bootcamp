@@ -3,12 +3,12 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.module:page2Module
+	 * @name app.module:analysisModule
 	 * @description
-	 * # page2Module
+	 * # analysisModule
 	 * Module of the app
 	 */
 
-  	angular.module('page2', []);
+  	angular.module('analysis', []);
 
 })();

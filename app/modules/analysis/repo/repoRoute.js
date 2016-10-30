@@ -12,9 +12,9 @@ angular.module('repo')
 	.config(['$stateProvider', function ($stateProvider) {
 
 		$stateProvider
-			.state('home.page2.repo', {
+			.state('home.analysis.repo', {
 				url:'/repo/:user/:name',
-				templateUrl: 'app/modules/page2/repo/repo.html',
+				templateUrl: 'app/modules/analysis/repo/repo.html',
 				controller: 'RepoCtrl',
 				controllerAs: 'vm'
 			});

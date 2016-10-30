@@ -24,7 +24,7 @@
 	function Home(homeService, MenuService) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.title = "TWEB APP";
+		vm.title = "GitHub Analysis";
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
 		vm.menu = MenuService.listMenu();

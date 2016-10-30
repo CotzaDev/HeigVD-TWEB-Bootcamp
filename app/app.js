@@ -21,11 +21,10 @@
 		'ui.router',
 		'chart.js',
 		'home',
-		'page1',
-		'page2',
+		'analysis',
 			'repo',
 			'user',
-		'page3',
+		'history',
 	]);
 
 })();

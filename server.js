@@ -8,10 +8,11 @@ var gh = new GitHubApi({Promise: Promise});
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost:27017/github');
 gh.authenticate({
-    type: "token",
-    token: "d77879429c5e9f6ec509a2ac9db575bcafd9452d",
+  type: "token",
+  token: "d77879429c5e9f6ec509a2ac9db575bcafd9452d",
 });
 
+/* DB Entry Schema */
 var HistorySchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   type: String,
@@ -20,8 +21,7 @@ var HistorySchema = new mongoose.Schema({
 });
 var History = mongoose.model('History', HistorySchema);
 
-
-
+/* Serve static content and set port */
 app.use('/', express.static('build'));
 app.set('port', (process.env.PORT || 5000));
 
@@ -134,6 +134,9 @@ app.get('/api/repo/:user/:repo', function (req, res) {
     getAllPages(gh.repos.getStatsContributors, {owner: req.params.user, repo: req.params.repo})
       .then(function(data) {
         var result = [];
+
+        if(!data)
+          resolve(result);
 
         data.forEach(function(contr){
           var contributor = {};
@@ -276,10 +279,11 @@ app.get('/api/user/:username', function (req, res) {
 
 });
 
-
+/* Start server and bind port */
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
+
 
 function getClientIp(req) {
   return (req.headers["X-Forwarded-For"] ||
