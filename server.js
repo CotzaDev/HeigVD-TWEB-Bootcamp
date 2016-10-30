@@ -1,20 +1,51 @@
 var express = require('express');
-var app = express();
-
+var mongoose = require('mongoose');
 var GitHubApi = require("github");
+
+var app = express();
 var gh = new GitHubApi({Promise: Promise});
 
+mongoose.Promise = Promise;
+mongoose.connect('mongodb://localhost:27017/github');
 gh.authenticate({
     type: "token",
     token: "d77879429c5e9f6ec509a2ac9db575bcafd9452d",
 });
+
+var HistorySchema = new mongoose.Schema({
+  date: { type: Date, default: Date.now },
+  type: String,
+  value: String,
+  ip: String
+});
+var History = mongoose.model('History', HistorySchema);
+
 
 
 app.use('/', express.static('build'));
 app.set('port', (process.env.PORT || 5000));
 
 
+app.get('/api/history/:onlyIP?', function (req, res) {
+  var filter = {};
+  if(req.params.onlyIP && req.params.onlyIP == 'mine') {
+    filter.ip = getClientIp(req);
+  }
+
+  History.find(filter).sort({date: -1}).limit(25).then(function(data){
+    res.json(data);
+  }, function(e){
+    console.log(e);
+  });
+});
+
 app.get('/api/repo/:user/:repo', function (req, res) {
+  var histEntry = new History({
+    type: 'Repo',
+    value: req.params.user + '/' + req.params.repo,
+    ip: getClientIp(req)
+  });
+
 
   var pCommits = new Promise(getCommits);
   var pStats = new Promise(getStats);
@@ -31,8 +62,10 @@ app.get('/api/repo/:user/:repo', function (req, res) {
       summary.contributors = results[3];
       summary.stats.contributors = results[3].length;
 
-      res.json(summary);
-    }).catch(function(e) {
+      // Save in The DB and send response
+      saveEntrySendRes(histEntry, res, summary);
+
+    }, function(e) {
       res.status(e.code).send({ error: e.status });
   });
 
@@ -127,6 +160,11 @@ app.get('/api/repo/:user/:repo', function (req, res) {
 });
 
 app.get('/api/user/:username', function (req, res) {
+  var histEntry = new History({
+    type: 'User',
+    value: req.params.username,
+    ip: getClientIp(req)
+  });
 
   var pInfos = new Promise(getInfos);
   var pLanguages = new Promise(getLanguagesOfRepos);
@@ -140,14 +178,18 @@ app.get('/api/user/:username', function (req, res) {
       summary.languages = results[1];
 
       if(results[0].type != 'Organization') {
-        res.json(summary);
+        // Save in The DB and send response
+        saveEntrySendRes(histEntry, res, summary);
       }
       else {
         var pMembers = new Promise(getMembers);
         pMembers.then(function(result){
           summary.members = result;
           summary.infos.members = result.length;
-          res.json(summary);
+
+          histEntry.type = 'Organization';
+          // Save in The DB and send response
+          saveEntrySendRes(histEntry, res, summary);
         }, function(e) {
           res.status(e.code).send({ error: e.status });
         });
@@ -239,6 +281,12 @@ app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
 
+function getClientIp(req) {
+  return (req.headers["X-Forwarded-For"] ||
+          req.headers["x-forwarded-for"] ||
+          '').split(',')[0]              ||
+          req.client.remoteAddress;
+};
 
 function getAllPages(func, params) {
   var result = [];
@@ -254,4 +302,12 @@ function getAllPages(func, params) {
 
   return func(params)
     .then(pager);
+}
+
+function saveEntrySendRes(entry, res, data) {
+  entry.save().then(function(){
+    res.json(data);
+  }, function(e){
+    console.log(e);
+  });
 }
